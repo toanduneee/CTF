@@ -4,17 +4,17 @@
 
 - Bài này ta phải tìm định vị của 1 bức ảnh
 
-![GeoGuessr1.jpg](Full%20Weak%20Engineer%20CTF%202025%2025eede0de67a8094b15fd409ccbda30c/GeoGuessr1.jpg)
+![GeoGuessr1.jpg](FULLWE~1/GeoGuessr1.jpg)
 
 - Có thể thấy ngay đầu tiên đập vào mắt là KFC với mã số 1065
 - Đơn giản bây giờ là lên google search với cụm từ **“KFC 1065”**, ta sẽ được:
 
-![image.png](Full%20Weak%20Engineer%20CTF%202025%2025eede0de67a8094b15fd409ccbda30c/image.png)
+![image.png](FULLWE~1/image.png)
 
 - Có rất nhiều trang đều cung cấp 1 địa chỉ như này: ***1065 E El Camino Real # 234 Sunnyvale, CA 94087***
 - Tìm nó với ggmaps với chế độ xem phố, ta thấy ngay được như vậy:
 
-![image.png](Full%20Weak%20Engineer%20CTF%202025%2025eede0de67a8094b15fd409ccbda30c/image%201.png)
+![image.png](FULLWE~1/image%201.png)
 
 - And định vị của nó là: ***37.3523268,-122.0035919***
 
@@ -31,24 +31,24 @@
 
 - Có
     
-    [regex-auth.zip](Full%20Weak%20Engineer%20CTF%202025%2025eede0de67a8094b15fd409ccbda30c/regex-auth.zip)
+    [regex-auth.zip](FULLWE~1/regex-auth.zip)
     
 - Trong [`app.py`](http://app.py) có thể thấy flag được đặt trong biến môi trường và nó được gọi khi người dùng đăng nhập trong phần uid ở trong cookie là 1 cái rỗng
 
-![image.png](Full%20Weak%20Engineer%20CTF%202025%2025eede0de67a8094b15fd409ccbda30c/image%202.png)
+![image.png](FULLWE~1/image%202.png)
 
 - Đăng nhập với 1 tên bất kỳ thì nó sẽ đặt là `guest_12345`, còn đăng nhập bằng user có sẵn thì nó sẽ nhảy vào trong `USER`
 
-![image.png](Full%20Weak%20Engineer%20CTF%202025%2025eede0de67a8094b15fd409ccbda30c/image%203.png)
+![image.png](FULLWE~1/image%203.png)
 
 - Mặt khác ta biết được rằng cái này nó xác định bằng cookie và cookie được encode bằng base64
 - Với việc đăng nhập vào 1 username bất kỳ, ta sẽ được:
 
-![image.png](Full%20Weak%20Engineer%20CTF%202025%2025eede0de67a8094b15fd409ccbda30c/image%204.png)
+![image.png](FULLWE~1/image%204.png)
 
 - Vậy bên server sẽ decode cái phần value của uid và xác định nó thuộc loại gì. Nếu bây giờ muốn phần kia là 1 cái rỗng thì mình có thể xóa value của uid đi, nhưng khi thử nó, ngay lập tức đoạn code phía dưới sẽ thực hiện xác định và kick người dùng quay về trang đăng nhập username. Vậy làm sao để bypass được nó? Ta có thể dùng `IA==` để thay thế cho dấu cách  `` .
 
-![image.png](Full%20Weak%20Engineer%20CTF%202025%2025eede0de67a8094b15fd409ccbda30c/image%205.png)
+![image.png](FULLWE~1/image%205.png)
 
 ---
 
